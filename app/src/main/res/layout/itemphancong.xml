@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_marginTop="100dp"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        android:background="@drawable/vien"
+        android:layout_gravity="center">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginTop="50dp">
+            <TextView
+                android:textColor="@color/blue"
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Mã CT: "
+                android:textStyle="bold"/>
+            <TextView
+                android:textColor="@color/blue"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="64"
+                android:id="@+id/mact"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp">
+            <TextView
+                android:textColor="@color/blue"
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Chi tiêu BSC: "
+                android:textStyle="bold"/>
+            <TextView
+                android:textColor="@color/blue"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="cccccccccc"
+                android:id="@+id/chitieubsc"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp">
+            <TextView
+                android:textColor="@color/blue"
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Chi tiêu: "
+                android:textStyle="bold"/>
+            <TextView
+                android:textColor="@color/blue"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="cccccccccc"
+                android:id="@+id/chitieu"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp">
+            <TextView
+                android:textColor="@color/blue"
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Trạng thái: "
+                android:textStyle="bold"/>
+            <TextView
+                android:textColor="@color/blue"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="cccccccccc"
+                android:id="@+id/dathuchien" />
+        </LinearLayout>
+    </LinearLayout>
+    <Button
+        android:layout_marginTop="10dp"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:text="chi tiết"
+        android:textSize="10dp"
+        android:layout_gravity="center"
+        android:background="@drawable/button_color"
+        android:textColor="@color/white"/>
+</LinearLayout>

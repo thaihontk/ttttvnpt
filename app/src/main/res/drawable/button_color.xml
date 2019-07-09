@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:drawable="@drawable/bg_color"
+        android:state_pressed="true"/>       <!-- Hi?n màu xanh nhạt khi nhấn vào nút -->
+    <item android:drawable="@drawable/bg_button"
+        android:state_pressed="false">     <!-- Hi?n màu xanh khi không nhấn vào nút -->
+    </item>
+</selector>

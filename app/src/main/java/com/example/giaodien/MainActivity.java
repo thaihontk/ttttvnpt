@@ -1,0 +1,142 @@
+package com.example.giaodien;
+
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+import android.content.Intent;
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class MainActivity extends AppCompatActivity {
+
+    EditText edituser, editpassword;
+    Button btndangky, btndangnhap;
+    int nhomnd_id;
+    String urladd ="http://10.97.46.153:8080";
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        anhXa();
+        btndangnhap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(ktrDN()){
+                    dangnhap();
+                }else {
+                    Toast.makeText(getApplicationContext(),"Nhập tên đăng nhập và mật khẩu!", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
+
+    private void anhXa() {
+        edituser= (EditText)findViewById(R.id.edittextuser);
+        editpassword= (EditText)findViewById(R.id.edittextpassword);
+        btndangnhap=(Button)findViewById(R.id.buttondangnhap);
+
+    }
+    private boolean ktrDN(){
+        if(edituser.getText().toString().trim().equals("")){
+            return false;
+        }if(editpassword.getText().toString().trim().equals("")){
+            return false;
+        }if(!edituser.getText().toString().trim().matches("[a-zA-z0-9]+")) {
+            return false;
+        }else return true;
+    }
+    private void dangnhap(){
+        String url =urladd+"/dangnhap1.php";
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                //Toast.makeText(getApplicationContext(),response.trim(), Toast.LENGTH_LONG).show();
+                if (edituser.getText().toString().trim().contains(response.trim())){
+                    //Toast.makeText(getApplicationContext(),"Sai tài khoản hoặc mật khẩu!", Toast.LENGTH_SHORT).show();
+                }else {
+                    try {
+                        JSONArray jsonArray = new JSONArray(response.trim());
+                        JSONObject jsonObject = (JSONObject)jsonArray.get(0);
+                        int nhomnd_id = jsonObject.getInt("NHOMND_ID");
+                        String manv = jsonObject.getString("NGUOIDUNG_ID");
+                        String tennd = jsonObject.getString("TEN_ND");
+                        Toast.makeText(getApplicationContext(),manv+" mã nhân viên dangnhap ", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this,chucnang.class);
+                        intent.putExtra("nhomnd_id",nhomnd_id);
+                        intent.putExtra("manv",manv);
+                        intent.putExtra("urladd",urladd);
+                        intent.putExtra("tennd",tennd);
+                        startActivity(intent);
+                        switch (nhomnd_id) {
+                            case 1:
+                                Toast.makeText(getApplicationContext(), "Đăng nhập thành công với quyền quản trị", Toast.LENGTH_SHORT).show();
+                                break;
+                            case 2:
+                                Toast.makeText(getApplicationContext(), "Đăng nhập thành công với quyền thành viên", Toast.LENGTH_SHORT).show();
+                                break;
+                            case 3:
+                                Toast.makeText(getApplicationContext(), "Đăng nhập thành công với quyền khách", Toast.LENGTH_SHORT).show();
+                                break;
+                        }
+                    }catch (JSONException e){
+                        //Toast.makeText(getApplicationContext(), "Sai tài khoản hoặc mật khẩu", Toast.LENGTH_SHORT).show();
+                        try {
+                            JSONArray jsonArray = new JSONArray(response.trim());
+                            JSONObject jsonObject = (JSONObject) jsonArray.get(0);
+                            int ttdn_id = jsonObject.getInt("TTDN_ID");
+                            switch (ttdn_id){
+                                case 3:
+                                    Toast.makeText(getApplicationContext(), "Sai mật khẩu", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 4:
+                                    Toast.makeText(getApplicationContext(), "Sai tài khoản", Toast.LENGTH_SHORT).show();
+                                    break;
+                            }
+                        }catch (JSONException e1){
+                            Toast.makeText(getApplicationContext(), "Lỗi", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),error.toString(), Toast.LENGTH_LONG).show();
+            }
+        } ){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("user1name",edituser.getText().toString().trim());
+                params.put("pass1word",editpassword.getText().toString().trim());
+                return params;
+            }
+        };
+        requestQueue.add(stringRequest);
+
+    }
+    private void put(Class cl){
+        Intent intent = new Intent(this,cl);
+        intent.putExtra("chukyno","20181201");
+        intent.putExtra("urladd",urladd);
+        startActivity(intent);
+    }
+}

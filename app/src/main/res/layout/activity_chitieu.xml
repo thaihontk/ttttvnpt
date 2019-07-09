@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".chitieu">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/bg">
+
+        <EditText
+            android:id="@+id/mact"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/bg_login2"
+            android:hint="Nhập mã chỉ tiêu"
+            android:paddingLeft="10dp"
+            android:textColor="@color/blue"
+            android:textColorHint="@color/blue" />
+
+        <Button
+            android:layout_marginTop="20dp"
+            android:id="@+id/btnchitieu"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:background="@drawable/button_color"
+            android:text="TÌM"
+            android:textColor="@color/white" />
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_marginTop="80dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recycleviewchitieu">
+        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

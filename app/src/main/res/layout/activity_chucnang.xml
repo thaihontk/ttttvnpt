@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".chucnang"
+    android:background="@drawable/chucnang4">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="34dp">
+
+        <TextView
+            android:id="@+id/tennd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right" />
+
+        <TextView
+            android:layout_marginTop="70dp"
+            android:paddingLeft="10dp"
+            android:id="@+id/datebieudo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="CHỌN CHU KỲ NỢ"
+            android:textColorHint="@color/white" />
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:id="@+id/bieudo1"
+                android:layout_width="20dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:background="@drawable/barchart2" />
+
+            <Button
+                android:id="@+id/bieudo2"
+                android:layout_width="30dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:background="@drawable/piechart4"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/bieudo3"
+                android:layout_width="30dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_weight="1"
+                android:background="@drawable/piechart4" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="BRCD"
+                android:layout_marginLeft="170dp"
+                android:textColor="@color/white"/>
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="MyTV"
+                android:layout_marginLeft="80dp"
+            android:textColor="@color/white"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/chitieu"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/chitieu3" />
+
+            <Button
+                android:id="@+id/phancong"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="40dp"
+                android:background="@drawable/hoso" />
+            <Button
+                android:id="@+id/chitietcuocgoi"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="40dp"
+                android:background="@drawable/chitietcuocgoi2"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="Chỉ tiêu"
+                android:textColor="@color/white"
+                android:layout_marginLeft="40dp"/>
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="Phân công công việc"
+                android:textColor="@color/white" />
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="Báo cước"
+                android:textColor="@color/white" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/chitietthanhtoan"
+                android:layout_width="90dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/thanhtoan3" />
+
+            <Button
+                android:layout_marginLeft="15dp"
+                android:id="@+id/baocuoc"
+                android:layout_width="90dp"
+                android:layout_height="80dp"
+                android:background="@drawable/baocuoc6" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:text="Chi tiết cuộc gọi"
+                android:textColor="@color/white"
+                android:layout_marginLeft="30dp"/>
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="Chi tiết thanh toán"
+                android:textColor="@color/white"
+                android:layout_marginLeft="20dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
