@@ -79,7 +79,7 @@ public class bieudo2 extends Activity implements GestureDetector.OnGestureListen
                 try {
                     JSONArray jsonArray = new JSONArray(response.trim());
                     JSONObject jsonObject = (JSONObject)jsonArray.get(1);
-                    String ten = jsonObject.getString("SUBSTR(TEN_DONVI_TTVT,26,3)");
+                    //String ten = jsonObject.getString("SUBSTR(TEN_DONVI_TTVT,26,3)");
                     int brcd1 = jsonObject.getInt("BRCD_TB_PTM");
 
                     JSONObject jsonObjectA[] = new JSONObject[20];
@@ -92,7 +92,7 @@ public class bieudo2 extends Activity implements GestureDetector.OnGestureListen
                     }
 
                     for(int i=0;i<11;i++){
-                        donvi[i] = jsonObjectA[i].getString("SUBSTR(TEN_DONVI_TTVT,26,3)");
+                        donvi[i] = jsonObjectA[i].getString("MA_DV");
                         brcd[i] = jsonObjectA[i].getInt("BRCD_TB_PTM");
                         madonvi[i] = jsonObjectA[i].getString("MA_DONVI_TTVT");
                         //mytv[i] = jsonObjectA[i].getInt("MYTV_TB_PTM");

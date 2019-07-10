@@ -54,6 +54,7 @@ public class thongtinckn extends AppCompatActivity {
     public void dulieu(final String a, final String b, String urladd){
         String url =urladd+"/thongtinckn.php";
         RequestQueue requestQueue = Volley.newRequestQueue(this);
+        //Toast.makeText(getApplicationContext(),"trước khi lỗi", Toast.LENGTH_LONG).show();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -144,7 +145,7 @@ public class thongtinckn extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),error.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Lỗi 1:"+error.toString()+" ", Toast.LENGTH_LONG).show();
             }
         } ){
             @Override

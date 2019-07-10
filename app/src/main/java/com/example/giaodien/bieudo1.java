@@ -85,9 +85,10 @@ public class bieudo1 extends Activity implements GestureDetector.OnGestureListen
 
                     JSONArray jsonArray = new JSONArray(response.trim());
                     JSONObject jsonObject = (JSONObject)jsonArray.get(1);
-                    String ten = jsonObject.getString("SUBSTR(TEN_DONVI_TTVT,26,3)");
-                    int brcd1 = jsonObject.getInt("BRCD_TB_PTM");
-                    int mytv1 = jsonObject.getInt("MYTV_TB_PTM");
+                    //String ten = jsonObject.getString("TEST");
+                    //String ten = new String("test");
+                    //int brcd1 = jsonObject.getInt("BRCD_TB_PTM");
+                    //int mytv1 = jsonObject.getInt("MYTV_TB_PTM");
 
                     //Toast.makeText(getApplicationContext(), ten + " " + brcd1 + " " + mytv1, Toast.LENGTH_LONG).show();
                     //du lieu tu json
@@ -102,7 +103,8 @@ public class bieudo1 extends Activity implements GestureDetector.OnGestureListen
                     }
 
                     for(int i=0;i<11;i++){
-                        donvi[i+1] = jsonObjectA[i].getString("SUBSTR(TEN_DONVI_TTVT,26,3)");
+                        donvi[i+1] = jsonObjectA[i].getString("MA_DV");
+                        //donvi[i+1] = new String("test");
                         madonvi[i+1] = jsonObjectA[i].getString("MA_DONVI_TTVT");
                         brcd[i] = jsonObjectA[i].getInt("BRCD_TB_PTM");
                         mytv[i] = jsonObjectA[i].getInt("MYTV_TB_PTM");
@@ -227,7 +229,7 @@ public class bieudo1 extends Activity implements GestureDetector.OnGestureListen
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),error.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"lỗi nè"+error.toString(), Toast.LENGTH_LONG).show();
             }
         } ){
             @Override
