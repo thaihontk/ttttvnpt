@@ -220,7 +220,7 @@ public class bieudo1 extends Activity implements GestureDetector.OnGestureListen
                     //het bieu do
 
                 }catch (JSONException e){
-                    Toast.makeText(getApplicationContext(),"Lỗi: nhập sai chu kì nợ", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Lỗi: nhập sai chu kì nợ "+e.toString()+a, Toast.LENGTH_LONG).show();
                     resetChart();
                 }
             }
